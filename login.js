@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import {login} from './AuthFunction'
 import swal from 'sweetalert'
 
@@ -39,9 +39,9 @@ class Login extends React.Component{
     render(){
         return(
             <div className="container">
-                <div className="row">
+                <div className="row bg-warning">
                     <div className="col-md-6 mt-5 mx-auto">
-                        <form onSubmit={this.handleSubmit}>
+                        <form noValidate onSubmit={this.onSubmit}>
                             <h1 className="h3 mb-3 font-weight-normal">
                                 Please Sign In
                             </h1>
@@ -51,8 +51,9 @@ class Login extends React.Component{
                                 className="form-control" 
                                 name="email" 
                                 placeholder="Enter Email Address" 
-                                value={this.state.email}
-                                onChange={this.handleChange}/>
+                                defaultValue={this.state.email}
+                                onChange={this.handleChange}>
+                                </input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
@@ -60,10 +61,11 @@ class Login extends React.Component{
                                 className="form-control" 
                                 name="password" 
                                 placeholder="Enter your Password" 
-                                value={this.state.password}
-                                onChange={this.handleChange}/>
+                                defaultValue={this.state.password}
+                                onChange={this.handleChange}>
+                                </input>
                             </div>
-                            <button type="submit" className="btn btn-lg btn-primary btn-block">
+                            <button type="submit" className="btn btn-lg btn-dark btn-block">
                                 Sign In
                             </button>
                         </form>
@@ -75,4 +77,4 @@ class Login extends React.Component{
     }
 } 
 
-export default Login;
+export default Login
